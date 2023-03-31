@@ -1,6 +1,11 @@
 const loginPage = document.getElementById('login-page');
 const mainPage = document.getElementById('main-page');
 
+mockUser = {
+  mockUserName: 'Mockel',
+  mockUserPassword: 'passwort',
+};
+
 // LOGIN PAGE
 
 const form = document.querySelector('form');
@@ -10,9 +15,12 @@ form.addEventListener('submit', function (event) {
   const username = form.elements['username'].value;
   const password = form.elements['password'].value;
 
-  if (username === 'mockUser' && password === 'pw') {
-    loginPage.classList.add('hidden');
-    loginPage.classList.remove('hidden');
+  if (
+    username === mockUser.mockUserName &&
+    password === mockUser.mockUserPassword
+  ) {
+    loginPage.style.display = 'none';
+    mainPage.style.display = 'inherit';
   } else {
     alert('Benutzername oder Passwort ungültig!');
   }
