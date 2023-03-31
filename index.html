@@ -1,21 +1,125 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css" />
     <title>Login</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+
+      .login-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .login-body > form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .login-body > label {
+        margin-bottom: 10px;
+      }
+
+      .login-body > input[type='text'],
+      .login-body > input[type='password'] {
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      .login-body > input[type='submit'] {
+        padding: 10px;
+      }
+
+      .form-wrap-wrap {
+        width: 500px;
+        padding: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+      }
+
+      .form-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-wrap > input {
+        margin-bottom: 1rem;
+        max-width: 300px;
+      }
+
+      .form-wrap > button {
+        width: 100px;
+      }
+
+      .checkbox-wrap {
+        display: flex;
+      }
+
+      .checkbox-wrap > input[type='checkbox'] {
+        margin-right: 0.5rem;
+      }
+    </style>
+    <script src="index.js" defer></script>
   </head>
   <body>
-    <h1>Login</h1>
-    <form>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" />
-      <br />
+    <div id="login-page" class="login-body">
+      <h1>Login</h1>
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" /><br />
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" />
-      <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" /><br />
 
-      <input type="submit" value="Login" />
-    </form>
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+
+    <div id="main-page" class="form-wrap-wrap hidden">
+      <form id="contactForm" class="form-wrap">
+        <h4>Personal Information</h4>
+        <label for="firstName">First Name:</label>
+        <input id="firstName" name="firstName" type="text" required />
+
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" name="lastName" type="text" required />
+
+        <label for="birthdate">Date of birth:</label>
+        <input id="birthdate" name="birthdate" type="date" />
+
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" type="text" required></textarea>
+
+        <h4>Address</h4>
+        <label for="city">City Name:</label>
+        <input id="city" name="city" type="text" required />
+
+        <label for="streetName">Street Name and Number:</label>
+        <input id="streetName" name="streetName" type="text" required />
+
+        <label for="postalCode">Postal Code:</label>
+        <input id="postalCode" name="postalCode" type="text" required />
+
+        <h4>Privacy Policy</h4>
+        <div class="checkbox-wrap">
+          <input
+            id="agreeToPrivacyPolicy"
+            name="agreeToPrivacyPolicy"
+            type="checkbox"
+          />
+          <label for="agreeToPrivacyPolicy"
+            >I agree with the privacy policy.</label
+          >
+        </div>
+        <button id="submitContactForm" type="submit">Submit</button>
+      </form>
+      <button id="fetchSubs" type="button">Fetch Subscribers</button>
+    </div>
   </body>
 </html>
